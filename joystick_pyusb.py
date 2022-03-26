@@ -14,7 +14,7 @@ if device.is_kernel_driver_active(interface):
 device.set_configuration()
 endpaddr = endpoint.bEndpointAddress
 
-list_len = 8 # after testing, all buttons and axes of the two joysticks together were put in the first 7 places of the list
+list_len = 8 # after testing, all buttons and axes of one joystick were put in the first 8 places of the list
 while True: 
     ########################  I had two joysticks connected through 1 usb ###########################
     joy_data_1_from_usb = []
@@ -28,7 +28,7 @@ while True:
     joy2_buttons = [0,0,0,0,0,0,0,0,0,0,0,0]
 
 
-    read = device.read(endpaddr, 16)
+    read = device.read(endpaddr, 16) # after testing, all buttons and axes were put into the first 16 places in the list
    
 
     for i in range (list_len):
